@@ -26,7 +26,7 @@
 
             $.discordAPI.sendMessageEmbed('host-hall', //** change host-hall to whatever discord channel you want the announcements to appear in **/
                 new Packages.sx.blah.discord.util.EmbedBuilder()
-					.withColor(255, 180, 220)   //** You can adjust the color of the embed here **/
+                    .withColor(255, 180, 220)   //** You can adjust the color of the embed here **/
                     .withThumbnail(targetLogo)
                     .withTitle('Now Hosting '+target+' on Twitch')
                     .appendField($.lang.get('discord.streamhandler.common.game'), targetGame, false)
