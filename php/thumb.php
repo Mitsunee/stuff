@@ -3,6 +3,9 @@
  * This php script either loads or creates a thumbnail of any png or jpg image in the folder it's in
  * Simply put the filename into the GET value imgid
  * there is a regex filter in place to prevent malicious requests from moving to a different folder
+ *
+ * @author Mitsunee <https://www.mitsunee.com>
+ * @license https://github.com/Mitsunee/stuff/blob/master/LICENSE
  */
 if(!isset($_GET["imgid"])) {
 	http_response_code(404);
