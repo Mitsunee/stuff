@@ -20,11 +20,10 @@ end
 function print_adress()
     local TID
     if game == 0 then
-        TID = memory.read_u16_le(0x4000104)
-        if TID > 0 then TID = TID - 68 end
+        TID = memread(0x2024AC6, 2)
         TID = string.format("%05d", TID)
     elseif game == 1 then
-        TID = memory.read_u16_le(0x2024EAE)
+        TID = memread(0x2024EAE, 2)
         TID = string.format("%05d", TID)
     else
         TID = "?????"
