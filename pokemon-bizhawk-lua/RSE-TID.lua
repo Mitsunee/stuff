@@ -20,7 +20,9 @@ end
 function print_adress()
     local TID
     if game == 0 then
-        TID = memread(0x2024AC6, 2)
+        local saveBlock2 = memread(0x3005d90, 4)
+        local playerTrainerIdAddress = saveBlock2 + 0xA
+        TID = memread(playerTrainerIdAddress, 2)
         TID = string.format("%05d", TID)
     elseif game == 1 then
         TID = memread(0x2024EAE, 2)
