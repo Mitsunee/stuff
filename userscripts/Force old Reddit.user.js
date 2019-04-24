@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        I WANT OLD REDDIT DAMNIT
+// @name        Force old Reddit
 // @version     1
 // @grant       none
 // @include     https://www.reddit.com/*
