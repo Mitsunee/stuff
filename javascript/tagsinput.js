@@ -42,7 +42,11 @@ $(function(){
                 // Recover latest tag
                 case 'ArrowLeft':
                     thisTagsArea.find("span").last().remove();
+<<<<<<< HEAD
                     if(thisIn.val() != "") return;
+=======
+                    if(thisIn.val() != "" || thisOut.val() == "") return;
+>>>>>>> 0a1414ff0d54e91dc7f70d61baf04d49fdb0dad7
                     ev.preventDefault();
                     if(val.indexOf(',') != -1) {
                         let i = val.split(',');
