@@ -1,6 +1,16 @@
+#### PROGRAM ALIASES ####
 ### Phantombot Console ###
-#alias to open the console of Phantombot running as a service
-alias phantombot='journalctl -u phantombot --follow --lines=all'
+#shows the full console history
+alias pb-log='journalctl -u phantombot --follow --lines=all'
+
+#shows the service status
+alias pb-status='systemctl status phantombot'
+
+#starts the service
+alias pb-start='sudo systemctl start phantombot'
+
+#stops the service
+alias pb-stop='sudo systemctl stop phantombot'
 
 ### LS Deluxe Overrides (requires package: LS Deluxe) ###
 alias l='lsd -F'
@@ -19,6 +29,7 @@ alias opti-crazy='optipng -o7 -zm1-9'
 #add to queue
 opti-add () {
     printf "$*\n" >> ~/.optipng_queue;
+    printf "$(wc -l < ~/.optipng_queue) Picture(s) queued\n";
 }
 
 #run queue (note: you may want to edit this path to be more specific)
@@ -26,7 +37,7 @@ opti-add () {
 alias opti-run-queue='pushd ~/Pictures && cat ~/.optipng_queue | xargs -n 1 find . -iname | xargs -n 1 -I {} printf "%q\n" "{}" | xargs -n 1 optipng -o4 && printf "" >  ~/.optipng_queue && popd'
 
 #count queue items
-alias opti-queue-length='wc -l < ~/.optipng_queue'
+alias opti-queue-length='printf "$(wc -l < ~/.optipng_queue) Picture(s) queued\n"'
 
 ### Misc launch commands ###
 # Note: Obviously only copy the ones you need from here
