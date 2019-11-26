@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Quick bash script that allows you to grab the currently playing song from Spotify
+# Based on: https://obsproject.com/forum/resources/now-playing-bash-script.341/
 # This program uses sed make sure it's installed
 
 # Config vars
