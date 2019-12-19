@@ -27,7 +27,7 @@ function fcountlist() {
 
 export -f fcountlist
 
-if [ -z "$1" ]; then
+if [ ! -z "$1" ]; then
 	fcountlist "$1"
 else
 	fcountlist

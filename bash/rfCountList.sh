@@ -27,7 +27,7 @@ function rfcountlist() {
 
 export -f rfcountlist
 
-if [ -z "$1" ]; then
+if [ ! -z "$1" ]; then
 	rfcountlist "$1"
 else
 	rfcountlist
