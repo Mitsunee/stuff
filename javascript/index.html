@@ -1,0 +1,34 @@
+<!---
+https://www.mitsunee.com/youtube-thumbnail-grabber/
+LICENSE: WTFPL
+AUTHOR: MITSUNEE
+--->
+<html>
+  <head>
+    <title>YouTube Thumbnail Grabber</title>
+    <script>
+    function grabThatThumb() {
+        let url = document.querySelector("form>input[type='text']").value;
+        if (url.indexOf("youtu.be")!=-1) {showThumb(url.match(/youtu.be\/([a-zA-Z0-9_-]+)/)[1]);return false;}
+        if (url.indexOf("youtube.com")!=-1) {showThumb(url.match(/(?:\?|\&)v=([a-zA-Z0-9_-]+)/)[1]);return false;}
+        return false;
+    }
+    function showThumb(youTubeVideoId) {
+        let imageUrl = "https://i2.ytimg.com/vi/" + youTubeVideoId + "/maxresdefault.jpg";
+        document.querySelector("#clicktrap > img").src = imageUrl;
+        document.body.style.overflow="hidden";
+        document.querySelector("#clicktrap").style.display="";
+    }
+    function hideClicktrap() {
+        document.querySelector("#clicktrap").style.display="none";
+        document.body.style.overflow="auto";
+    }
+    </script>
+    <style>
+        #clicktrap {display:flex;align-items:center;justify-items:center;background:rgba(0,0,0,0.5);position:fixed;width:100vw;height:100vh;top:0px;left:0px;padding:0;margin:0;}
+        #clicktrap > img {display:block;width:100%;height:100%;object-fit:contain;padding:0;margin:0;}
+    </style>
+  </head>
+  <body><form onsubmit="return grabThatThumb();"><input type="text" placeholder="Put youtube.com or youtu.be url here" style="max-width:90%";"><input type="submit" value="Grab Thumbnail" style="max-width:8%"></form>
+  <div id="clicktrap" onclick="hideClicktrap()" title="Click to close" style="display:none"><img id="thumb-goes-here" alt="thumb will load here"></div></body>
+</html>
