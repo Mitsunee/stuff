@@ -26,4 +26,4 @@ function range(min, max) {
 /*
  * range (minimized)
  */
-function range(a,b){if(isNaN(b)&&(b=a,a=0),a>b){let t=a;a=b,b=t}let n=b-a+1;return Array(n).fill(0).map((_,i)=>(i+a));}
+function range(a,b){if(isNaN(b)&&(b=a,a=0),a>b){[a,b]=[b,a]}let n=b-a+1;return Array(n).fill(0).map((_,i)=>i+a)}
