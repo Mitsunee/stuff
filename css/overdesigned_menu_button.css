@@ -1,0 +1,35 @@
+div#fancy-button {
+    background: purple;
+    width: 50px;
+    height: 32px;
+    position: relative;
+}
+
+div#fancy-button > div {
+    display: block;
+    height: 4px;
+    background: white;
+    width: 34px;
+    position: absolute;
+    transition: transform 0.5s, width 0.25s;
+}
+
+.button-stick:first-of-type {
+    top: 8px;
+    left: 8px;
+}
+
+.button-stick:last-of-type {
+    bottom: 8px;
+    left: 8px;
+}
+
+#fancy-button.button-clicked > .button-stick:first-of-type {
+    width: 22px;
+    transform: translate(-1px, 6px) rotate(45deg);
+}
+
+div#fancy-button.button-clicked > .button-stick:last-of-type {
+    width: 22px;
+    transform: translate(13px, -6px) rotate(-45deg);
+}
