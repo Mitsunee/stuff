@@ -1,11 +1,11 @@
-div#fancy-button {
+#fancy-button {
     background: purple;
     width: 50px;
     height: 32px;
     position: relative;
 }
 
-div#fancy-button > div {
+#fancy-button > .button-stick {
     display: block;
     height: 4px;
     background: white;
@@ -29,7 +29,7 @@ div#fancy-button > div {
     transform: translate(-1px, 6px) rotate(45deg);
 }
 
-div#fancy-button.button-clicked > .button-stick:last-of-type {
+#fancy-button.button-clicked > .button-stick:last-of-type {
     width: 22px;
     transform: translate(13px, -6px) rotate(-45deg);
 }
