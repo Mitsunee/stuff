@@ -1,29 +1,42 @@
 /*
  * range
  *
- * generates an array with all integers between and including two integers (or one integer and 0)
+ * Generates an Array with all Numbers in a specified range
  * (see below for minimized version!)
  *
- * int min - minimum. If no maximum is giving this argument will be used as maximum instead and minimum will be assumed to be 0
- * int max (optional, see above) - maximum.
+ * Number start - Start value. If this is the only argument this is length instead and the start value will be 0.
+ * Number stop (optional, see above) - stop value
+ * Number step (optional, default: 1) - steps between values
+ * Number maxLength (optional) - maximum number of items in the resulting Array
  *
- * returns Array
+ * to skip optional arguments please put undefined as the argument.
+ *
+ * returns Array (or false if no valid values given)
  */
-function range(min, max) {
-    if (isNaN(max)) {
-        max = min;
-        min = 0;
+function range(start, stop, step, maxLength) {
+    // validate input
+    if (isNaN(start)) return false;
+    if (isNaN(stop)) {
+        stop = start;
+        start = 0;
     }
-    if (min > max) {
-        let temp = min;
-        min = max;
-        max = temp;
-    }
-    let n = max - min + 1;
-    return Array(n).fill(0).map((_,index)=>(index+min));
+    if (stop < start) [stop, start] = [start, stop];
+    if (isNaN(step)) step = 1;
+    
+    // calculate length
+    let length = (stop - start) / step;
+    // DEBUG: console.log(`Calculated length: ${length}`);
+    if (!isNaN(maxLength)) length = Math.min(length, maxLength);
+    
+    // DEBUG: console.log({start, stop, step, maxLength, length});
+    
+    // return array
+    return Array(0|length).fill(0).map((_, index) => index * step + start);
 }
 
 /*
  * range (minimized)
+ 
+function range(a,b,c,d){if(isNaN(a))return!1;isNaN(b)&&(b=a,a=0),b<a&&([b,a]=[a,b]),isNaN(c)&&(c=1);let e=(b-a)/c;return isNaN(d)||(e=Math.min(e,d)),Array(0|e).fill(0).map((b,d)=>d*c+a)}
+
  */
-function range(a,b){if(isNaN(b)&&(b=a,a=0),a>b){[a,b]=[b,a]}let n=b-a+1;return Array(n).fill(0).map((_,i)=>i+a)}
