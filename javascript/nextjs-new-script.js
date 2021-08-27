@@ -5,8 +5,8 @@
  * It automatically creates css modules and (for components) index.js files.
  *
  * The following aliases in jsconfig are assumed:
- * "@components/*" : "src/components/*"
- * "@styles/*": "src/styles/*"
+ *   "@components/*" : "src/components/*"
+ *   "@styles/*": "src/styles/*"
  *
  * CSS Modules are created, but left empty while all js(x) files are automatically
  * prettified using prettier and the project's prettierconfig.
