@@ -11,7 +11,7 @@ How to use:
   const total = [
     ...document.querySelectorAll(
       "span.ytd-thumbnail-overlay-time-status-renderer"
-    ),
+    )
   ]
     .map(({ innerText }) => innerText)
     .reduce((total, timecode) => {
