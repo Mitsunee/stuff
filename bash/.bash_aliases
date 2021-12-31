@@ -1,20 +1,8 @@
-### LS Deluxe Overrides ###
-alias l='lsd -F'
-alias ll='lsd -lF'
-alias la='lsd -a'
-alias ls='lsd'
-alias tree='lsd --tree'
-
-### old fgo repos ###
-alias fgo='read -p "Go to: fgo-" target_dir && cd "/var/www/fgo/fgo-$target_dir"'
-alias fgo-assets='read -p "Go to: fgo-" target_dir && cd "/var/www/fgo/fgo-$target_dir/$target_dir/assets"'
-alias fgo-upgrades-update='/home/mitsunee/scripts/update-fgo-upgrades.sh; cd /var/www/fgo/fgo-upgrades/upgrades/assets'
-
 ### OptiPNG ###
 alias opti-normal='optipng -o4'
 alias opti-crazy='optipng -o7 -zm1-9'
 # opticat script
-alias opticat='/home/mitsunee/scripts/optiCat.sh'
+alias opticat='/home/mitsu/scripts/optiCat.sh'
 complete -W 'run add length' opticat
 
 ### dev ###
@@ -26,6 +14,9 @@ alias gp='git push'
 alias gpt='git push --tags'
 alias gbr='git branch'
 alias npkill='npkill --exclude ".cache,.config,.atom"'
+alias ssh-login='ssh-add ~/.ssh/id_ed25519'
+alias atom="flatpak run --command=atom io.atom.Atom"
+alias apm="flatpak run --command=apm io.atom.Atom"
 
 ### Launch commands ###
 # set volume
