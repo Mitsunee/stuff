@@ -1,13 +1,3 @@
-/** NOTES:
-  LICENSE: WTFPL
-  AUTHOR: Mitsunee
-  
-  Note that due to the recusive nature of this reducer
-  you have to change the function name inside the
-  function body, if you wish to rename the function
-**/
-
-
 // source
 const totalRecursive = (acc, value) => {
   if (typeof value === "number") {
