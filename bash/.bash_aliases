@@ -10,10 +10,15 @@ alias find-todo='egrep -nrHi "(\/{2,}|\/\*+|#+) ?(TODO|WIP|DEBUG|PLACEHOLDER|NOT
 alias find-todo-next='egrep -nrHi "\/(\*+|\/+) ?(TODO|WIP|DEBUG|PLACEHOLDER|NOTE|TEMP|BUG)" src pages scripts'
 alias yrn='yarn run'
 alias yadd='yarn add'
+alias yup='yarn upgrade-interactive'
 alias gp='git push'
 alias gpt='git push --tags'
+alias gpull='git pull'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gbr='git branch'
-alias npkill='npkill --exclude ".cache,.config,.atom"'
+alias gbr-spawn='read -p "New Branch Name: " TEMP && git branch $TEMP && git checkout $TEMP && git push -u origin $TEMP'
+alias npkill='npkill --exclude ".cache,.config,.atom,.var"'
 alias ssh-login='ssh-add ~/.ssh/id_ed25519'
 alias atom="flatpak run --command=atom io.atom.Atom"
 alias apm="flatpak run --command=apm io.atom.Atom"
@@ -27,7 +32,7 @@ alias snek='python3'
 
 # aptitude
 alias update='sudo aptitude update'
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade && flatpak update && ncu -g'
 alias install='sudo aptitude install'
 alias uninstall='sudo aptitude remove'
 
