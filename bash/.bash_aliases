@@ -27,10 +27,10 @@ alias atom='flatpak run --command=atom io.atom.Atom'
 alias apm='flatpak run --command=apm io.atom.Atom'
 
 # nodejs versions (via n)
-alias n-12='sudo n 12.22.10 && sudo npm i -g npm@latest'
-alias n-14='sudo n 14.19.0 && sudo npm i -g npm@latest'
-alias n-16='sudo n 16.14.0 && sudo npm i -g npm@latest'
-alias n-17='sudo n 17.7.1 && sudo npm i -g npm@latest'
+alias n-12='sudo n 12.22.11 && sudo npm i -g npm@latest'
+alias n-14='sudo n 14.19.1 && sudo npm i -g npm@latest'
+alias n-16='sudo n 16.14.2 && sudo npm i -g npm@latest'
+alias n-17='sudo n 17.7.2 && sudo npm i -g npm@latest'
 alias n-17-latest='sudo n 17 && sudo npm i -g npm@latest'
 
 # redis systemd
