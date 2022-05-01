@@ -8,6 +8,9 @@ alias yadd='yarn add'
 alias yrm='yarn remove'
 alias yup='yarn upgrade-interactive'
 complete -W '--latest' yup
+alias pub-script='sudo n 16 && yarn run publish'
+alias pub='sudo n 16 && yarn clean-publish'
+alias pub-clean='[[ "${PWD##*/}" == tmp ]] && cd .. && rm -rf tmp'
 
 # git
 alias gp='git push'
@@ -19,6 +22,7 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gbr='git branch'
 alias gbr-spawn='read -p "New Branch Name: " TEMP && git branch $TEMP && git checkout $TEMP && git push -u origin $TEMP'
+alias glog='git log --oneline | head -n 20'
 alias npkill='npkill --exclude ".cache,.config,.atom,.var"'
 alias ssh-login='ssh-add ~/.ssh/id_ed25519'
 
@@ -26,12 +30,11 @@ alias ssh-login='ssh-add ~/.ssh/id_ed25519'
 alias atom='flatpak run --command=atom io.atom.Atom'
 alias apm='flatpak run --command=apm io.atom.Atom'
 
-# nodejs versions (via n)
-alias n-12='sudo n 12.22.11 && sudo npm i -g npm@latest'
-alias n-14='sudo n 14.19.1 && sudo npm i -g npm@latest'
-alias n-16='sudo n 16.14.2 && sudo npm i -g npm@latest'
-alias n-17='sudo n 17.7.2 && sudo npm i -g npm@latest'
-alias n-17-latest='sudo n 17 && sudo npm i -g npm@latest'
+# nodejs versions (via n and ncu)
+alias n-14='sudo n 14.19.1'
+alias n-16='sudo n 16.14.2'
+alias n-18='sudo n 18.0.0'
+alias npm-upgrade='sudo npm i -g npm@latest && ncu -g'
 
 # redis systemd
 alias redis-start='sudo systemctl start redis-server'
@@ -49,7 +52,7 @@ complete -W 'run add length' opticat
 
 # aptitude
 alias update='sudo aptitude update'
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade && flatpak update && ncu -g'
+alias upgrade='sudo aptitude update && sudo aptitude full-upgrade && flatpak update'
 alias upgradeable='apt list --upgradable'
 alias install='sudo aptitude install'
 alias uninstall='sudo aptitude remove'
