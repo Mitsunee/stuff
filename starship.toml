@@ -1,0 +1,31 @@
+
+format = """
+$username\
+[](bg:#EEEEEE fg:#DD0000)\
+$directory\
+$git_branch\
+[](fg:#EEEEEE)\
+$character\
+"""
+
+[username]
+show_always = true
+style_user = "bg:#DD0000 fg:#DDDDDD bold"
+style_root = "bg:#DD0000 fg:#000000 bold"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:#EEEEEE fg:#555555 bold"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "../"
+
+[character]
+success_symbol = ""
+error_symbol = " [✗](bold red)"
+
+[git_branch]
+symbol = ""
+style = "bg:#EEEEEE fg:#555555 bold"
+format = '[[ $symbol $branch ]($style)]($style)'
+
