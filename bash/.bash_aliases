@@ -2,46 +2,38 @@
 alias find-todo='egrep -nrHi "(\/{2,}|\/\*+|#+) ?(TODO|WIP|DEBUG|PLACEHOLDER|NOTE|TEMP|BUG)"'
 alias find-todo-src='egrep -nrHi "\/(\*+|\/+) ?(TODO|WIP|DEBUG|PLACEHOLDER|NOTE|TEMP|BUG)" src'
 
-# yarn
+# node.js/yarn
 alias yrn='yarn run'
 alias yadd='yarn add'
 alias yrm='yarn remove'
 alias yup='yarn upgrade-interactive'
 complete -W '--latest' yup
-alias pub-script='sudo n 16 && yarn run publish'
-alias pub='sudo n 16 && yarn clean-publish'
-alias pub-clean='[[ "${PWD##*/}" == tmp ]] && cd .. && rm -rf tmp'
+alias npkill='npkill --exclude ".cache,.config,.atom,.var"'
+alias n='sudo n' # always use n as su
+alias npm-up='sudo npm i -g npm@latest && ncu -g'
+
+# rust
+alias rust-up='rustup update && cargo install-update -a'
 
 # git
 alias gp='git push'
 alias gpt='git push --tags'
 alias gpull='git pull'
-alias gadd='git add'
-alias gaA='git add -A'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gbr='git branch'
-alias gbr-spawn='read -p "New Branch Name: " TEMP && git branch $TEMP && git checkout $TEMP && git push -u origin $TEMP'
+alias gbr-spawn='read -p "New Branch Name: " TEMP && git branch $TEMP && git checkout $TEMP && git push -u origin $TEMP;'
 alias glog='git log --oneline | head -n 20'
-alias npkill='npkill --exclude ".cache,.config,.atom,.var"'
-alias ssh-login='ssh-add ~/.ssh/id_ed25519'
 
 # atom flatpak cli
 alias atom='flatpak run --command=atom io.atom.Atom'
 alias apm='flatpak run --command=apm io.atom.Atom'
 
-# nodejs versions (via n and ncu)
-alias n-14='sudo n 14.19.1'
-alias n-16='sudo n 16.14.2'
-alias n-18='sudo n 18.0.0'
-alias npm-upgrade='sudo npm i -g npm@latest && ncu -g'
-
+### Launch commands ###
 # redis systemd
 alias redis-start='sudo systemctl start redis-server'
 alias redis-stop='sudo systemctl stop redis-server'
 alias redis-status='sudo systemctl status redis-server'
 
-### Launch commands ###
 # optipng
 alias opti-normal='optipng -o4'
 alias opti-crazy='optipng -o7 -zm1-9'
