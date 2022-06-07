@@ -1,7 +1,6 @@
-
 format = """
 $username\
-[](bg:#EEEEEE fg:#DD0000)\
+[](bg:#EEEEEE fg:166)\
 $directory\
 $git_branch\
 [](fg:#EEEEEE)\
@@ -10,8 +9,8 @@ $character\
 
 [username]
 show_always = true
-style_user = "bg:#DD0000 fg:#DDDDDD bold"
-style_root = "bg:#DD0000 fg:#000000 bold"
+style_user = "bg:166 fg:#EEEEEE bold"
+style_root = "bg:166 fg:#000000 bold"
 format = '[ $user ]($style)'
 
 [directory]
@@ -27,5 +26,5 @@ error_symbol = " [✗](bold red)"
 [git_branch]
 symbol = ""
 style = "bg:#EEEEEE fg:#555555 bold"
-format = '[[ $symbol $branch ]($style)]($style)'
+format = '[ $symbol $branch ]($style)'
 
