@@ -12,7 +12,7 @@ CHOICE=$(gum choose \
   --cursor.foreground="#F83" \
   --selected.foreground="#F83" \
   --selected=system,flatpak \
-  "system" "flatpak" "cargo" "npm");
+  "system" "flatpak" "cargo" "golang" "npm");
 
 if [[ $CHOICE == *"system"* ]]; then
   gum confirm "Updating system packages with dnf" && \
@@ -27,6 +27,11 @@ fi
 if [[ $CHOICE == *"cargo"* ]]; then
   gum confirm "Updating cargo packages" && \
     cargo install-update -a;
+fi
+
+if [[ $CHOICE == *"golang"* ]]; then
+  gum confirm "Updating go packages" && \
+    go-global-update;
 fi
 
 if [[ $CHOICE == *"npm"* ]]; then
