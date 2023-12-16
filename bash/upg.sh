@@ -7,6 +7,12 @@ if ! [ -x "$(command -v gum)" ]; then
   exit 1;
 fi
 
+upgrade_npm () {
+  NCU_COMMAND="$(npm-check-updates -g | grep 'npm -g install')";
+  gum confirm "Run '$NCU_COMMAND'?" && \
+    bash -c "$NCU_COMMAND" _;
+}
+
 CHOICE=$(gum choose \
   --no-limit \
   --cursor.foreground="#F83" \
@@ -36,7 +42,8 @@ fi
 
 if [[ $CHOICE == *"npm"* ]]; then
   gum confirm "Checking for npm package updates" && \
-    npm-check-updates -g;
+    upgrade_npm;
 fi
 
+unset upgrade_npm CHOICE;
 exit 0;
