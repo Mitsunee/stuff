@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=./recipes-schema.json
+- name: Redstone Block
+  ingredients:
+    - name: Redstone
+      amount: 9
+- name: Redstone Torch
+  ingredients:
+    - name: Redstone
+    - name: Redstone Torch
