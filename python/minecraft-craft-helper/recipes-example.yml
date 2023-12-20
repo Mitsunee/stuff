@@ -8,9 +8,9 @@
     - name: Redstone
     - name: Stick
 - name: Stick
-  # TODO: add support for outputs: 4
+  outputs: 4
   ingredients:
-    - name: Wood Planks
+    - name: Wood Plank
       amount: 2
 - name: Stone
   ingredients:
@@ -22,7 +22,7 @@
     - name: Redstone
     - name: Stone
       amount: 3
-- name: Wood Planks
-  # TODO: outputs: 4
+- name: Wood Plank
+  outputs: 4
   ingredients:
     - name: Wood Logs

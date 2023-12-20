@@ -8,6 +8,9 @@
       "name": {
         "type": "string"
       },
+      "outputs": {
+        "type": "integer"
+      },
       "ingredients": {
         "type": "array",
         "items": {
