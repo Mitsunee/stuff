@@ -7,3 +7,22 @@
   ingredients:
     - name: Redstone
     - name: Stick
+- name: Stick
+  # TODO: add support for outputs: 4
+  ingredients:
+    - name: Wood Planks
+      amount: 2
+- name: Stone
+  ingredients:
+    - name: Cobblestone
+- name: Redstone Repeater
+  ingredients:
+    - name: Redstone Torch
+      amount: 2
+    - name: Redstone
+    - name: Stone
+      amount: 3
+- name: Wood Planks
+  # TODO: outputs: 4
+  ingredients:
+    - name: Wood Logs

@@ -105,10 +105,11 @@ parser.add_argument(
   asterisk (*). You may put spaces before or after the separator as you wish"""
 )
 
-# Parse args and create queue and totals dict
+# Parse args and create queue and dicts
 args = parser.parse_args()
 queue = Queue()
-totals = {}
+ingredients = {}
+crafted = {}
 
 # Load recipes
 try:
@@ -128,16 +129,45 @@ for arg in args.items:
 while not queue.empty():
   item = queue.get()
   if item.item in recipes:
+    # recipe exists for item, add to crafted dict
+    if not item.item in crafted:
+      crafted[item.item] = 0
+    crafted[item.item] += item.amount
+    # queue ingredients
     for ingredient in recipes[item.item]['ingredients']:
       total_amount = ingredient['amount'] * item.amount
       temp = ItemWithAmount(item=ingredient['name'],amount=total_amount)
       queue.put(temp)
   else:
-    if not item.item in totals:
-      totals[item.item] = 0
-    totals[item.item] += item.amount
+    # raw material, add to ingredients dict
+    if not item.item in ingredients:
+      ingredients[item.item] = 0
+    ingredients[item.item] += item.amount
 
 # output result
 print('\nTotal Ingredients:')
-for item in totals.keys():
-  print(f"  - {item}: {totals[item]}")
+for item in ingredients.keys():
+  print(f"  - {item}: {ingredients[item]}")
+
+# instructions
+crafted_done = set()
+print('\nSteps:')
+while len(crafted_done) < len(crafted):
+  # for every item that has not been crafted yet
+  for item in crafted_done.symmetric_difference(crafted):
+    # check that all ingredients are raw material or have been crafted already
+    ready=True
+    for ingredient in recipes[item]['ingredients']:
+      # skip if it's not a craftable item
+      if not ingredient['name'] in recipes:
+        continue
+      # set ready to false if it's not crafted yet and break
+      if not ingredient['name'] in crafted_done:
+        ready=False
+        break
+    # skip if it's not ready to be crafted
+    if not ready:
+      continue
+    # print crafting instruction and add item to set
+    print(f"  - Craft {crafted[item]} of {item}")
+    crafted_done.add(item)
