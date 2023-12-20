@@ -2,10 +2,22 @@
 
 Recursively resolves provided crafting recipes to totals of components
 
+## Installation
+
+Simply download the [script](./craft-helper.py) via the download button in the top right of the code view or download this repository as a zip file and unzip the `python/minecraft-craft-helper` directory.
+
+Minecraft Craft Helper uses the following packages which you may need to install:
+
+```shell
+pip install schema argparse pyyaml queue
+```
+
+The LibYaml integration of PyYaml is supported and will be used if available
+
 ## Usage
 
 ```
-$ python craft-helper.py [-h] -r <file> items [items ...]
+$ python craft-helper.py [-h] --recipes <file> items [items ...]
 ```
 
 ## Recipes File
