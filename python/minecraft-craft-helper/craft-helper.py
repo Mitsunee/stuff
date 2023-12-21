@@ -61,6 +61,7 @@ def validate_recipes(recipes):
   schema = Schema({
     'name': Use(str, error='Item name must be string'),
     Optional('outputs', default=1): int,
+    Optional('disabled', default=False): bool,
     'ingredients': And(
       [{
         'name': Use(str, error='Ingredient name must be string'),
@@ -77,6 +78,8 @@ def validate_recipes(recipes):
   for item in recipes:
     try:
       validated_item = schema.validate(item)
+      if validated_item['disabled']:
+        continue
       recipes_dict[validated_item['name']] = validated_item
     except Exception as e:
       print(f"Error: Could not parse item no. {len(recipes_dict)+1} in recipes file")

@@ -24,5 +24,6 @@
       amount: 3
 - name: Wood Plank
   outputs: 4
+  disabled: true
   ingredients:
     - name: Wood Logs

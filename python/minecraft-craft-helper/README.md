@@ -20,7 +20,14 @@ $ python craft-helper.py [-h] --recipes <file> items [items ...]
 
 ## Recipes File
 
-Place all recipes that should be resolved to their components into a yaml file. An [example file](./recipes-example.yml) and [schema](./recipes-schema.json) have been provided with the script. The file should contain a list of item objects containing a `name`, an optional amount of `outputs` (read: amount of the item created by the crafting recipe, default: 1) and a list of `ingredients`, where each ingredient must also have a `name` and may optionally have an `amount` (default: 1).
+Place all recipes that should be resolved to their components into a yaml file. An [example file](./recipes-example.yml) and [schema](./recipes-schema.json) have been provided with the script. The file should contain a list of item objects containing the following properties:
+
+- a `name`,
+- an (optional) `outputs` amount (read: amount of the item created by the crafting recipe, default: 1)
+- an (optional) `disabled` property (read: put `disabled: true` to disable the recipe)
+- a (required) list of `ingredients`, where each ingredient object must also have:
+  - a `name`
+  - an (optionally) `amount` (default: 1)
 
 ```yml
 - name: Redstone Repeater
@@ -33,9 +40,15 @@ Place all recipes that should be resolved to their components into a yaml file. 
     - name: Stone
       amount: 3
 - name: Wood Plank
+  disabled: true
   outputs: 4
   ingredients:
     - name: Wood Logs
+- name: Stick
+  outputs: 4
+  ingredients:
+    - name: Wood Plank
+      amount: 4
 ```
 
 ## Example

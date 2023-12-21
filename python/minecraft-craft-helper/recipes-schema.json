@@ -6,22 +6,31 @@
     "additionalProperties": false,
     "properties": {
       "name": {
-        "type": "string"
+        "type": "string",
+        "description": "Name of the item as used in ingredients and script item arguments"
       },
       "outputs": {
-        "type": "integer"
+        "type": "integer",
+        "description": "Amount of the item obtained by a single crafting operation of this crafting recipe"
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Whether to disable a recipe. Disabled recipes will be entirely ignored by craft-helper. Useful for temporarily disable a recipe"
       },
       "ingredients": {
         "type": "array",
+        "description": "List of ingredients required for this crafting recipe",
         "items": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "Name of the ingredient"
             },
             "amount": {
-              "type": "integer"
+              "type": "integer",
+              "description": "Amont required of the ingredient"
             }
           },
           "required": [
