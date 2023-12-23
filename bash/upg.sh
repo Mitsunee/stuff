@@ -9,6 +9,10 @@ fi
 
 upgrade_npm () {
   NCU_COMMAND="$(npm-check-updates -g | grep 'npm -g install')";
+  if [[ $NCU_COMMAND == "" ]]; then
+    echo "All npm packages up to date";
+    return
+  fi
   gum confirm "Run '$NCU_COMMAND'?" && \
     bash -c "$NCU_COMMAND" _;
 }
@@ -41,7 +45,7 @@ if [[ $CHOICE == *"golang"* ]]; then
 fi
 
 if [[ $CHOICE == *"npm"* ]]; then
-  gum confirm "Checking for npm package updates" && \
+  gum confirm "Updating for npm package updates" && \
     upgrade_npm;
 fi
 
